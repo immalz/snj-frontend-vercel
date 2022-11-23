@@ -1,0 +1,93 @@
+<ng-container *ngIf="loading"> 
+    <div class="page">
+        <h1 class="page__title">Orden de Merito</h1>
+        
+        <div class="page__text">
+            <div>
+                <h2><b>Aula: </b>{{grade.nombre || ''}}</h2>
+                <h2><b>Curso: </b>{{course.nombre || ''}}</h2>
+            </div>
+            <div class="filters">
+                <mat-form-field appearance="outline">
+                    <mat-label>Mes y Año</mat-label>
+                    <input matInput [matDatepicker]="dp" [formControl]="date">
+                    <mat-datepicker-toggle matIconSuffix [for]="dp"></mat-datepicker-toggle>
+                    <mat-datepicker #dp
+                                    startView="multi-year"
+                                    (monthSelected)="setMonthAndYear($event, dp)"
+                                    panelClass="example-month-picker">
+                    </mat-datepicker>
+                  </mat-form-field>
+
+                <button mat-raised-button (click)="searchNotes()">
+                    Buscar
+                </button>
+            </div>
+        </div>
+
+        <div class="page__button--top">
+            <button mat-raised-button>
+                Orden de Merito <mat-icon>bar_chart</mat-icon>
+            </button>
+        </div>
+
+        <div class="header top">
+            <div class="header__item">
+                <p>N°</p>
+            </div>
+            <div class="header__item">
+                <p>Nombre del Estudiante</p>
+            </div>
+            <div class="header__item">
+                <p>Mes</p>
+            </div>
+            <div class="header__item">
+                <p>Año</p>
+            </div>
+            <div class="header__item">
+                <p>Nota</p>
+            </div>
+            <div class="header__item">
+                <p></p>
+            </div>
+        </div>
+
+        <div class="page__cards">
+            <div class="header table"  *ngFor="let item of studentList; let i = index;">
+                <div class="header__item">
+                    <p>{{i + 1}}</p>
+                </div>
+                <div class="header__item">
+                   <p>{{item.nombre}}</p>
+                </div>
+
+                <div class="header__item">
+                    <p>{{mes}}</p>
+                </div>
+                <div class="header__item">
+                    <p>{{anio}}</p>
+                </div>
+                <div class="header__item">
+                    <input type="number" max="20" [(ngModel)]="item.nota" placeholder="0-20">
+                </div>
+                <div class="header__item">
+                    <button [disabled]="item.observacion" mat-icon-button (click)="setObservation(item)">
+                        <mat-icon *ngIf="!item.observacion">notifications_none</mat-icon>
+                        <mat-icon *ngIf="item.observacion">notifications_active</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+          
+        </div>
+    
+        <div class="page__buttons">
+            <button mat-raised-button [ngClass]="{'disabled': foundNotes}" [disabled]="foundNotes" (click)="save()">
+                Guardar Registro
+            </button>
+            <!-- <button mat-raised-button *ngIf="foundNotes" (click)="update()">
+                Actualizar Registro
+            </button> -->
+        </div>
+    </div>
+</ng-container>

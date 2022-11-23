@@ -1,0 +1,83 @@
+.main {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    background: #f1f1f1;
+}
+
+.main h1 {
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 45px;
+}
+
+.main .contenido {
+    width: 100%;
+    height: calc(100% - 80px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main .contenido__btn {
+    width: 90%;
+    margin: auto;
+    height: 36px;
+}
+
+.main .contenido__cards {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenido__cards .card {
+    width: 250px;
+    height: 330px;
+    margin: 0 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: 0.2s;
+    background: #fff;
+    padding: 0 5px;
+}
+
+.contenido__cards .card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.contenido__cards .card__img {
+    width: 100%;
+    overflow: hidden;
+    height: 60%;
+}
+
+.contenido__cards .card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.contenido__cards .card__text {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.contenido__cards .card__text h2 {
+    margin: 0;
+    text-align: center;
+    height: 64px;
+}

@@ -1,0 +1,20 @@
+<main class="main animated fadeIn">
+
+    <div class="noticias">
+        <button mat-raised-button class="button-info" (click)="agregarNoticia()">
+            <mat-icon>add</mat-icon>Escribir Noticia
+        </button>
+        <div class="card" *ngFor="let noticia of noticias">
+            <button mat-mini-fab class="float">
+                <mat-icon>border_color</mat-icon>
+            </button>
+            <div class="card__img">
+                <img [src]="imgPath + noticia.foto || 'assets/imagenes/recursos/noimg.jpg'" [alt]="noticia.titulo" />
+            </div>
+            <div class="card__descripcion">
+                <h2>{{ noticia.titulo }}</h2>
+                <!-- <p>{{ noticia.descripcion | limitTo : 100}}</p> -->
+            </div>
+        </div>
+    </div>
+</main>

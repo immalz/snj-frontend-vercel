@@ -1,0 +1,52 @@
+<main class="main animated fadeIn">
+    <form class="form" [formGroup]="nuevoAlumno" (ngSubmit)="send(nuevoAlumno.value)">
+        <div class="form__img">
+            <div class="form__img--foto">
+                <img [src]="photoSelected || 'assets/imagenes/recursos/alumno.png'" alt="No image" (click)="photoInput.click()">
+            </div>
+            <div class="form__img--input">
+                <input type="file" id="file" name="imgURL" (change)="onMedicineSelected($event)" #photoInput>
+                <label for="file">Eliger una Foto</label>
+            </div>
+        </div>
+        <div class="form__datos">
+            <h1>Nuevo Registro</h1>
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input formControlName="nombre" type="text" matInput placeholder="Angie Alzamora...">
+                <mat-icon matSuffix>format_color_text</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Correo</mat-label>
+                <input formControlName="correo" type="email" matInput placeholder="Correo Electronico">
+                <mat-icon matSuffix>alternate_email</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Contraseña</mat-label>
+                <input formControlName="contraseña" type="password" matInput placeholder="DNI del estudiante">
+                <mat-icon matSuffix>https</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Edad</mat-label>
+                <input formControlName="edad" type="number" matInput placeholder="8">
+                <mat-icon matSuffix>calendar_today</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Grado</mat-label>
+                <input formControlName="grado" type="text" matInput placeholder="2do Grado">
+                <mat-icon matSuffix>book</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Dirección</mat-label>
+                <input formControlName="direccion" type="text" matInput placeholder="Calle 28...">
+                <mat-icon matSuffix>place</mat-icon>
+            </mat-form-field>
+            <button [disabled]="nuevoAlumno.invalid" type="submit" mat-raised-button color="primary">Registrar</button>
+        </div>
+    </form>
+</main>

@@ -1,0 +1,33 @@
+<main class="main">
+    <div class="btn">
+        <app-button></app-button>
+    </div>
+    <div class="contenido">
+        <div class="contenido__banner">
+            <img class="web" src="assets/imagenes/auth/docente.webp" alt="">
+            <img class="movil" src="assets/imagenes/snj.png" alt="">
+        </div>
+        <div class="contenido__formulario  animated fadeIn">
+            <div class="titulo">
+                <h1>{{'Bienvenido' | uppercase}}</h1>
+                <p>Plataforma virtual Sagrados niños de Jesus</p>
+            </div>
+            <!-- <img class="icon" src="assets/imagenes/snj.png"> -->
+            <form class="form" (submit)="Acceder()" [formGroup]="formularioProfesores">
+                <mat-form-field appearance="fill">
+                    <mat-label>Correo Institucional</mat-label>
+                    <input formControlName="correo" type="text" matInput placeholder="nombre@docentesnj.com">
+                    <mat-icon matSuffix>school</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="fill">
+                    <mat-label>Contraseña</mat-label>
+                    <input formControlName="contraseña" type="password" matInput placeholder="Contraseña">
+                    <mat-icon matSuffix>vpn_key</mat-icon>
+                </mat-form-field>
+
+                <button [disabled]="formularioProfesores.invalid" type="submit" mat-raised-button class="btn-submit">Entrar</button>
+            </form>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,20 @@
+<nav>
+    <ul>
+        <li [routerLink]="['/estudiante/perfil']" routerLinkActive="active">
+            <mat-icon>person</mat-icon>
+            <span>Perfil</span>
+        </li>
+        <li [routerLink]="['/estudiante/cursos']" routerLinkActive="active">
+            <mat-icon>book</mat-icon>
+            <span>Cursos</span>
+        </li>
+        <li [routerLink]="['/estudiante']" routerLinkActive="active">
+            <mat-icon>school</mat-icon>
+            <span>Noticias</span>
+        </li>
+        <li (click)="authService.loggout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Salir</span>
+        </li>
+    </ul>
+</nav>

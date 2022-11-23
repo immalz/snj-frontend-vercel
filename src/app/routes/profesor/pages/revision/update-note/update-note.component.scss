@@ -1,0 +1,20 @@
+.page {
+    width: 100%;
+    padding: 10px;
+
+    .page__title {
+        text-align: center;
+        font-weight: 600;
+    }
+
+   
+    .mat-mdc-form-field {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+        background-color: var(--background-color);
+        color: #fff;
+    }
+}

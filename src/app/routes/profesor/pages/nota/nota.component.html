@@ -1,0 +1,74 @@
+<ng-container *ngIf="mode === 'aulas'">
+    <div class="page">
+
+        <h1 class="page__title">Aulas Disponibles</h1>
+
+        <div class="page__cards">
+            <h2><b>Nivel:</b> Inicial</h2>
+            <div class="list">
+                <ng-container *ngFor="let item of gradeList">
+                    <div class="page__cards--card" (click)="selectGrade(item)" *ngIf="item.nivel === 'inicial'">
+                        <mat-icon>child_care</mat-icon>
+                        <h5>{{item.nombre}}</h5>
+                        <h4>{{item.nombre}}</h4>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class="page__cards">
+            <h2><b>Nivel:</b> Primaria</h2>
+            <div class="list">
+                <ng-container *ngFor="let item of gradeList">
+                    <div class="page__cards--card" (click)="selectGrade(item)" *ngIf="item.nivel === 'primaria'">
+                        <mat-icon>school</mat-icon>
+                        <h5>{{item.nombre}}</h5>
+                        <h4>{{item.nombre}}</h4>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="mode === 'aula'">
+    <ng-container *ngIf="loading">
+        <div class="loading">
+            <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="!loading">
+       <div class="page">
+            <h1 class="page__title">
+                <button mat-icon-button (click)="return()">
+                    <mat-icon>keyboard_arrow_left</mat-icon>
+                </button>
+                Cursos Disponibles
+            </h1>
+
+            <div class="page__cards">
+                <h2><b>Nivel:</b> {{aula.nivel | titlecase}}</h2>
+                <h2><b>Aula:</b> {{aula.nombre}}</h2>
+                <ng-container *ngIf="courseList.length > 0; else notFound">
+                    <div class="list">
+                        
+                            <ng-container *ngFor="let item of courseList">
+                                <div [class]="getColorClass(item.nombre)" class="page__cards--card" (click)="goToAssignRatings(item)">
+                                    <mat-icon>school</mat-icon>
+                                    <h5>{{item.nombre}}</h5>
+                                    <h4>{{item.nombre}}</h4>
+                                </div>
+                            </ng-container>
+                    </div>
+                </ng-container>
+                <ng-template #notFound>
+                    <div class="notFound">
+                        <mat-icon>sentiment_very_dissatisfied</mat-icon>
+                        <p>NO TIENE CURSOS ASIGNADOS EN ESTA AULA</p>
+                    </div>
+                </ng-template>
+            </div>
+       </div>
+    </ng-container>
+
+</ng-container>

@@ -1,1 +1,98 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+    /*MODO CLARO*/
+    --verde-claro: #4ABDAC;
+    --verde-activo: #007965;
+    --gris-claro: #F3F8FB;
+    --blanco: #FFF;
+    --negro: #3C3C3C;
+    /*MODO OSCURO*/
+
+    --background-color: #019c7f;
+    --background-color-top: #33ac92;
+    --text-color-light: #bff9ec;
+    --text-color-dark: #0e1e1e;
+    --root-background-color: #f2f5f7;
+
+    // box-sizing: border-box;
+    // padding: 0;
+    // margin: 0;
+}
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+   
+}
+
+button,
+button:focus,
+a,
+ul,
+li {
+    outline: none;
+}
+
+.mat-column-tools {
+    flex: none;
+    width: 100px;
+}
+
+.mat-column-edad {
+    flex: none;
+    width: 80px;
+}
+
+.mat-column-grado {
+    flex: none;
+    width: 100px;
+}
+
+.button-info {
+    background: #00af91;
+    color: #fff;
+}
+
+.mat-form-field {
+    width: 90%;
+}
+
+.custom-modalbox .mat-dialog-container {
+    padding: 0px;
+    border-radius: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: transparent !important;
+}
+
+.mat-mdc-form-field-focus-overlay {
+    background-color: transparent;
+}
+
+.mat-mdc-text-field-wrapper .mat-mdc-form-field-infix .mat-mdc-floating-label,
+.mat-mdc-form-field {
+    font-size: 14px;
+}
+
+button {
+    letter-spacing: 0px !important;
+}

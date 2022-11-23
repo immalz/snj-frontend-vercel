@@ -1,0 +1,30 @@
+<div class="form" [formGroup]="form">
+    <h1>{{data.mode}} Docente</h1>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input (focusout)="setEmail($event)" matInput placeholder="" formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Correo</mat-label>
+        <input matInput placeholder="" formControlName="correo">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput placeholder="" formControlName="contraseña">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>DNI</mat-label>
+        <input type="number" matInput placeholder="" formControlName="dni">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Celular</mat-label>
+        <input type="number" matInput placeholder="" formControlName="celular">
+    </mat-form-field>
+
+    <button [disabled]="!form.valid" mat-flat-button (click)="save()">Guardar</button>
+</div>

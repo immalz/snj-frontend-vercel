@@ -1,0 +1,27 @@
+<nav>
+    <ul>
+
+        <li [routerLink]="['/docente/perfil']">
+            <mat-icon>person</mat-icon>
+            <span>Perfil</span>
+        </li>
+        <li [routerLink]="['/docente/']">
+            <mat-icon>school</mat-icon>
+            <span>Aulas</span>
+        </li>
+        <li [routerLink]="['/docente/cursos']">
+            <mat-icon>library_books</mat-icon>
+            <span>Cursos</span>
+        </li>
+        <li *ngIf="isAdmin" [routerLink]="['/administrar']">
+            <mat-icon>equalizer</mat-icon>
+            <span>Administrar</span>
+        </li>
+        <li (click)="authService.loggout()">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Salir</span>
+        </li>
+
+
+    </ul>
+</nav>

@@ -1,0 +1,13 @@
+<main class="animated fadeIn">
+    <div class="bg">
+        <h1>Datos del Estudiante</h1>
+        <img [src]=" imgPath + alumnoService.estudiante.foto" [alt]="alumnoService.estudiante.nombre">
+    </div>
+    <div class="datos">
+        <p>Nombre: {{alumnoService.estudiante.nombre}}</p>
+        <p>Edad: {{alumnoService.estudiante.edad}}</p>
+        <p>Grado: {{alumnoService.estudiante.grado}}</p>
+        <p>Profesor: Esther Cueto Chavez</p>
+        <h4>{{anio}}</h4>
+    </div>
+</main>

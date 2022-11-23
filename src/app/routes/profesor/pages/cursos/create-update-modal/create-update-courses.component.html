@@ -1,0 +1,31 @@
+<div class="form" [formGroup]="form">
+    <h1>{{data.mode}} Curso</h1>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="" formControlName="nombre">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Nivel</mat-label>
+        <mat-select formControlName="nivel" [disableOptionCentering]="true">
+            <mat-option [value]="'inicial'">
+                Inicial
+            </mat-option>
+            <mat-option [value]="'primaria'">
+                Primaria
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Docente</mat-label>
+        <mat-select formControlName="docente" [disableOptionCentering]="true">
+          <mat-option *ngFor="let teacher of teachers" [value]="teacher._id">
+            {{teacher.nombre | titlecase}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button [disabled]="!form.valid" mat-flat-button (click)="save()">Guardar</button>
+</div>

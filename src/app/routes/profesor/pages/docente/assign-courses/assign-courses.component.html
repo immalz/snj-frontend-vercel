@@ -1,0 +1,21 @@
+<div class="form" [formGroup]="form">
+    <h1>Asignar Curso</h1>
+    <p><b>Docente: </b>{{data.docente.nombre || ' '}}</p>
+    <div class="list__title">
+        <mat-checkbox class="example-margin"
+                      [checked]="allComplete"
+                      [indeterminate]="someComplete()"
+                      (change)="setAll($event.checked)">
+          Seleccionar Todo
+        </mat-checkbox>
+    </div>
+    <div class="list__container">
+        <div class="list__container--item" *ngFor="let course of courses">
+            <mat-checkbox [(ngModel)]="course.checked" [ngModelOptions]="{standalone: true}" (ngModelChange)="updateAllComplete()">
+                {{course.nivel}} | {{course.nombre}}
+            </mat-checkbox>
+        </div>
+    </div>
+
+    <button [disabled]="!form.valid" mat-flat-button (click)="save()">Guardar</button>
+</div>

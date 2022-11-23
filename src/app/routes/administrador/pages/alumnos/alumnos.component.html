@@ -1,0 +1,52 @@
+<main class="main animated fadeIn">
+    <h1>Registro de Estudiantes</h1>
+    <div class="search-div">
+        <button mat-raised-button class="button-info" (click)="agregarAlumno()">
+            <mat-icon>add</mat-icon>Alumno Nuevo
+        </button>
+        <mat-form-field class="search-form-field">
+            <mat-label>Filtro por Nombre</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ejemplo: Giancula Alzamora..." #input>
+        </mat-form-field>
+    </div>
+    <div class="mat-elevation-z8">
+        <mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="nombre">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.nombre}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="correo">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>correo</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.correo}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="edad">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Edad</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.edad}} años</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="direccion">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Dirección</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.direccion || 'Calle Pucallpa 201'}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="grado">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>Grado</mat-header-cell>
+                <mat-cell *matCellDef="let element">{{element.grado}}</mat-cell>
+            </ng-container>
+
+            <ng-container matColumnDef="tools">
+                <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <mat-cell *matCellDef="let row" style="width: 100px;">
+                    <button mat-icon-button (click)="editarAlumno(row._id)"><mat-icon>launch</mat-icon></button>
+                    <button mat-icon-button color="warn" (click)="eliminarAlumno(row._id, row.nombre)"><mat-icon>delete_outline</mat-icon></button>
+                </mat-cell>
+            </ng-container>
+
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[8, 10, 15]" [pageSize]="8" showFirstLastButtons></mat-paginator>
+    </div>
+</main>

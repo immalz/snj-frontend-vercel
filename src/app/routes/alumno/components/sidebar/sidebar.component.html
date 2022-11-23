@@ -1,0 +1,12 @@
+<main class="main">
+    <div class="main__img">
+        <img [src]="imgPath + user.foto" [alt]="user.nombre">
+    </div>
+    <div class="main__text">
+        <h1>{{user.nombre}}</h1>
+
+        <p><span class="br">Edad: </span>{{user.edad}} años</p>
+        <p><span class="br">Grado: </span>{{user.grado}}</p>
+        <p><span class="br">Tutor: </span>{{user.tutor.nombre || 'Esther Cueto Chavez'}}</p>
+    </div>
+</main>

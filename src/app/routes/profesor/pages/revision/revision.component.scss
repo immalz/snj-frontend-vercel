@@ -1,0 +1,234 @@
+.page {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+
+    .notFound {
+        width: 100%;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: 0.5;
+      }
+
+    .page__title {
+        font-weight: 600;
+        font-size: 30px;
+        padding-top: 40px;
+        opacity: 0.5;
+    }
+
+    .page__text {
+        width: 100%;
+        .filters {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+
+            button {
+                height: 55px;
+                background-color: var(--background-color);
+                color: #fff;
+            }
+        }
+    }
+
+    h2 {
+        opacity: 0.5;
+        margin: 0;
+        font-size: 17px;
+    }
+
+    .page__cards {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        .card {
+            width: 400px;
+            height: 200px;
+            display: flex;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 300ms ease;
+            background: #fff;
+            box-shadow: 10px 10px 10px rgba($color: #000000, $alpha: 0.1);
+            .card__img {
+                width: 150px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: all 300ms ease;
+                p {
+                    text-align: center;
+                    margin: 0;
+                }
+
+                .mat-icon {
+                    color: #777777;
+                    margin-bottom: 10px;
+                }
+            }
+
+            h5{
+                // margin-top: 20px;
+                text-transform: uppercase;
+                font-size: 14px;
+                color: #777777;
+                text-align: center;
+                margin: 0;
+                font-weight: 600;
+            }
+
+            h4{
+                // text-transform: uppercase;
+                font-size: 12px;
+                color: #777777;
+                text-align: center;
+                margin: 0;
+            }
+
+            .card__data {
+                width: 250px;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
+                .subText {
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                p {
+                    opacity: 0.5;
+                    display: flex;
+                    margin: 0;
+                    gap: 10px;
+                    span {
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+
+                p:nth-child(4) {
+                    align-items: center;
+                }
+
+                .danger {
+                    color: red;
+                }
+                .check {
+                    color: green;
+                }
+                .buttons {
+                    width: 100%;
+                    display: flex;
+                    gap: 10px;
+                    justify-content: space-between;
+
+                    .mat-form-field {
+                        font-size: 14px;
+                    }
+
+                    select {
+                        width: 50%;
+                        border-radius: 5px;
+                    }
+
+                    select:focus {
+                        outline: none;
+                    }
+
+                    button {
+                        width: 50%;
+                        font-size: 14px;
+                        color: #fff;
+                    }
+
+                    button.disabled {
+                        background: #b3b3b3;
+                    }
+
+                }
+            }
+            
+            
+        }
+
+        .card:hover .card__img.matematica {
+            background: #5a5ce4;
+        }
+        .card:hover .card__img.comunicacion {
+            background: #f252aa;
+        }
+        .card:hover .card__img.historia {
+            background: #0c96d6;
+        }
+        .card:hover .card__img.ciencia {
+            background: rgb(28, 230, 152);
+        }
+        .card:hover .card__img.religion {
+            background: rgb(93, 10, 148);
+        }
+        .card:hover .card__img.psico {
+            background: rgb(19, 247, 209);
+        }
+        .card:hover .card__img.arte {
+            background: #a9ece1;
+        }
+        .card:hover .card__img.computacion {
+            background: #e77912;
+        }
+        .card:hover .card__img.danza {
+            background: rgb(184, 226, 30);
+        }
+        .card:hover .card__img.ingles {
+            background: rgb(214, 64, 64);
+        }
+
+        .card:hover h5,
+        .card:hover .card__img  .mat-icon,
+        .card:hover h4 {
+            color: #fff;
+        }
+    }
+
+    button.matematica {
+        background: #5a5ce4;
+    }
+    button.comunicacion {
+        background: #f252aa;
+    }
+    button.historia {
+        background: #0c96d6;
+    }
+    button.ciencia {
+        background: rgb(28, 230, 152);
+    }
+    button.religion {
+        background: rgb(93, 10, 148);
+    }
+    button.psico {
+        background: rgb(19, 247, 209);
+    }
+    button.arte {
+        background: #a9ece1;
+    }
+    button.computacion {
+        background: #e77912;
+    }
+    button.danza {
+        background: rgb(184, 226, 30);
+    }
+    button.ingles {
+        background: rgb(214, 64, 64);
+    }
+
+   
+}

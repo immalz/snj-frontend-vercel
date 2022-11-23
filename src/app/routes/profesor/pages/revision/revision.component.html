@@ -1,0 +1,100 @@
+<div class="page"> 
+    <h1 class="page__title">Notas Observadas</h1>
+
+    <ng-container *ngIf="noteList.length === 0; else haveNotes">
+        <div class="page__text">
+            <div>
+                <!-- <h2><b>Aula: </b>{{grade.nombre || ''}}</h2>
+                <h2><b>Curso: </b>{{course.nombre || ''}}</h2> -->
+            </div>
+            <div class="filters">
+                <mat-form-field appearance="outline">
+                    <mat-label>Cursos</mat-label>
+                    <mat-select [(ngModel)]="selectCourse">
+                        <mat-option value="todo">
+                            Mostrar Todo
+                        </mat-option>
+                      <mat-option *ngFor="let course of courses" [value]="course._id">{{course.nombre}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <button mat-flat-button (click)="filter()">
+                    Filtrar
+                  </button>
+            </div>
+        </div>
+        <div class="notFound">
+            <mat-icon>sentiment_very_satisfied</mat-icon>
+            <p>ACTUALMENTE NO HAY NOTAS OBSERVADAS</p>
+        </div>
+    </ng-container>
+    
+    <ng-template #haveNotes>
+        <div class="page__text">
+            <div>
+                <!-- <h2><b>Aula: </b>{{grade.nombre || ''}}</h2>
+                <h2><b>Curso: </b>{{course.nombre || ''}}</h2> -->
+            </div>
+            <div class="filters">
+                <mat-form-field appearance="outline">
+                    <mat-label>Cursos</mat-label>
+                    <mat-select [(ngModel)]="selectCourse">
+                        <mat-option value="todo">
+                            Mostrar Todo
+                        </mat-option>
+                      <mat-option *ngFor="let course of courses" [value]="course._id">{{course.nombre}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <button mat-flat-button (click)="filter()">
+                    Filtrar
+                  </button>
+            </div>
+        </div>
+
+        <div class="page__cards">
+            
+            <div class="card" *ngFor="let note of noteList">
+                
+                <div class="card__img" [class]="getColorClass(note.curso[0].nombre)">
+                    <mat-icon>school</mat-icon>
+                    <h5>{{note.curso[0].nombre}}</h5>
+                    <h4>{{note.grado[0].nombre}}</h4>
+                </div>
+                <div class="card__data">
+                    <p><b>Alumno: </b>{{note.alumno[0].nombre}}</p>
+                    <div class="subText">
+                        <p><b>Mes: </b>{{note.mes}}</p>
+                        <p><b>Año: </b>{{getYear(note)}}</p>
+                    </div>
+                    <p><b>Nota: </b>
+                        <span *ngIf="note.nota < 10">0</span>{{note.nota}}
+                    </p>
+                    <p><b>Estado: </b>
+                        <span *ngIf="!note.aprobacion">Pendiente
+                            <mat-icon class="danger">highlight_off</mat-icon>
+                        </span>
+                        <span *ngIf="note.aprobacion">Aprobado
+                            <mat-icon class="check">check_circle_outline</mat-icon>
+                        </span>
+                    </p>
+
+                    <div class="buttons">
+                        <!-- <select [disabled]="docente.roles[0].nombre === 'docente'" #select (change)="changeValue($event)">
+                            <option value="0"></option>
+                            <option value="aceptar">Aceptar</option>
+                            <option value="rechazar">Rechazar</option>
+                            
+                        </select> -->
+                        <button [ngClass]="{'disabled': docente.roles[0].nombre === 'docente' || note.aprobacion}"  [disabled]="docente.roles[0].nombre === 'docente' || note.aprobacion" mat-flat-button [class]="getColorClass(note.curso[0].nombre)" (click)="Approve(note)">Aprobar</button>
+
+                          <button [ngClass]="{'disabled': !note.aprobacion || docente.roles[0].nombre === 'director'}"  [disabled]="!note.aprobacion || docente.roles[0].nombre === 'director'" mat-flat-button [class]="getColorClass(note.curso[0].nombre)" (click)="updateNote(note)">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+    
+        
+       
+</div>

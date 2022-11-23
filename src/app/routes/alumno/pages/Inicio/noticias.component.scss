@@ -1,0 +1,96 @@
+.main {
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    overflow-y: scroll;
+    padding-top: 60px;
+}
+
+
+/* .main ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+} */
+
+.main .card {
+    max-width: 700px;
+    min-height: 480px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: .2s;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--blanco);
+}
+
+.main .card__descripcion {
+    width: 100%;
+    min-height: 80px;
+}
+
+.main .card__descripcion h2 {
+    text-align: center;
+    margin: 0;
+}
+
+.main .card__descripcion p {
+    font-size: 15px;
+    margin: 0 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+}
+
+.main .card__img {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 0 0 5px 5px;
+    transition: .2s;
+}
+
+.main .card__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: .2s;
+}
+
+.main .card__opciones {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.main .card__opciones .estadistica {
+    width: 100%;
+    height: 20px;
+}
+
+.main .card__opciones .botones {
+    width: 100%;
+    width: 100%;
+    height: 40px;
+    margin: 5px;
+}
+
+.espacio {
+    width: 100%;
+    height: 60px;
+}
+
+.mat-raised-button {
+    width: 95%;
+}
+
+@media (max-width: 400px) {
+    .main {
+        background: var(--verde-claro);
+    }
+}

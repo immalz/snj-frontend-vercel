@@ -1,0 +1,42 @@
+<div class="sidebar">
+    <div>
+        <div class="img">
+            <img [src]="imgPath + user.foto">
+        </div>
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>dashboard</mat-icon> Analiticas
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <li><a [routerLink]="['/administrar'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Control del sistema</a></li>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>list_alt</mat-icon> Registro
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <li><a [routerLink]="['/administrar/alumnos'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Listado de Alumnos</a></li>
+                <li><a [routerLink]="['/administrar/profesores'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Listado de Profesores</a></li>
+            </mat-expansion-panel>
+
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title>
+                        <mat-icon>people</mat-icon> Noticias
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+                <li><a [routerLink]="['/administrar/noticias'] " routerLinkActive="activo" [ngStyle]="{'color': 'black'}">Publicaciones</a></li>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+
+    <div class="botones">
+        <button mat-raised-button (click)="authService.loggout()">
+            Salir
+        </button>
+    </div>
+</div>

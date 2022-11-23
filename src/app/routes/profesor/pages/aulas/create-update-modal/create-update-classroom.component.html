@@ -1,0 +1,60 @@
+<div class="form" [formGroup]="form">
+    <h1>{{data.mode}} Aula</h1>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput placeholder="" formControlName="nombre">
+    </mat-form-field>
+
+
+    <mat-form-field>
+        <mat-label>Piso</mat-label>
+        <mat-select formControlName="piso" [disableOptionCentering]="true">
+            <mat-option [value]="'1ro piso'">
+                1er piso
+            </mat-option>
+            <mat-option [value]="'2do piso'">
+                2do piso
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Número Aula</mat-label>
+        <input type="number" matInput placeholder="" formControlName="numeroAula">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Nivel</mat-label>
+        <mat-select formControlName="nivel" [disableOptionCentering]="true">
+            <mat-option [value]="'inicial'">
+                Inicial
+            </mat-option>
+            <mat-option [value]="'primaria'">
+                Primaria
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-form-field class="example-full-width">
+        <mat-label>Tutor</mat-label>
+        <input type="number" matInput placeholder="" formControlName="tutor">
+    </mat-form-field> -->
+<!-- 
+    <mat-form-field class="example-full-width">
+        <mat-label>Cargo</mat-label>
+        <input matInput placeholder="" formControlName="cargo">
+    </mat-form-field> -->
+
+    <mat-form-field>
+        <mat-label>Tutor</mat-label>
+        <mat-select formControlName="tutor" [disableOptionCentering]="true">
+          <mat-option [disabled]="teacher.aula.length === 1" *ngFor="let teacher of teachers" [value]="teacher._id">
+            {{teacher.nombre | titlecase}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button [disabled]="!form.valid" mat-flat-button (click)="save()">Guardar</button>
+</div>

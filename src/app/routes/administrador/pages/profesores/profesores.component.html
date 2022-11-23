@@ -1,0 +1,22 @@
+<main class="main animated fadeIn">
+    <h1>Registro de Docentes</h1>
+
+    <div class="contenido">
+        <div class="contenido__btn">
+            <button mat-raised-button class="button-info">
+                <mat-icon>add</mat-icon>Nuevo Docente
+            </button>
+        </div>
+        <div class="contenido__cards">
+            <div class="card" *ngFor="let docente of docentes">
+                <div class="card__img">
+                    <img [src]="imgPath + docente.foto" [alt]="docente.nombre">
+                </div>
+                <div class="card__text">
+                    <h2>{{docente.nombre}}</h2>
+                    <button mat-raised-button color="primary">Información</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

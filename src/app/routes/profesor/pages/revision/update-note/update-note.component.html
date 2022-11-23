@@ -1,0 +1,16 @@
+<div class="page">
+    <h1 class="page__title">Actualizar Nota</h1>
+
+    <div class="page__form" [formGroup]="form">
+        <p><b>Curso:</b> {{data.item.curso[0].nombre}}</p>
+        <p><b>Docente:</b> {{data.item.curso[0].docente[0].nombre}}</p>
+        
+        <mat-form-field class="example-full-width">
+            <mat-label>Nota</mat-label>
+            <input type="number" matInput placeholder="" formControlName="nota">
+            <mat-icon matSuffix>spellcheck</mat-icon>
+        </mat-form-field>
+
+        <button [disabled]="!form.valid" mat-flat-button (click)="save()">Actualizar</button>
+    </div>
+</div>

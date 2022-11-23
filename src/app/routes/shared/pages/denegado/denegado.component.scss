@@ -1,0 +1,63 @@
+main {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(45deg, #8500ff, #5acaff);
+}
+
+#container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('/assets/imagenes/recursos/p404.png'), var(--verde-claro);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+#container .content {
+    max-width: 600px;
+    text-align: center;
+}
+
+#container .content h2 {
+    font-size: 18vw;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1em;
+}
+
+#container .content h4 {
+    position: relative;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    background: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+#container .content p {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+#container .content a {
+    position: relative;
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #00af91;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 25px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+#container .content a:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}

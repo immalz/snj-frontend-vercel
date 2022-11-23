@@ -1,0 +1,53 @@
+<div class="publicar animated fadeIn">
+    <h1>Publicar Anuncio</h1>
+    <form class="form" [formGroup]="nuevaNoticia" (ngSubmit)="send(nuevaNoticia.value)">
+        <div class="form__datos">
+            <mat-form-field appearance="fill">
+                <mat-label>Titulo</mat-label>
+                <input formControlName="titulo" type="text" matInput placeholder="Matriculas Abiertas hasta el...">
+                <mat-icon matSuffix>format_color_text</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Descripcion</mat-label>
+                <textarea formControlName="descripcion" matInput placeholder="Escribe la noticia aqui..."></textarea>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill" *ngIf="enlaces" class="animated fadeIn">
+                <mat-label>Enlaces</mat-label>
+                <input formControlName="enlaces" type="text" matInput placeholder="http:www.google.com">
+                <mat-icon matSuffix>insert_link</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="form__img" *ngIf="imagen">
+            <div class="form__img--foto animated fadeIn">
+                <img aria-disabled="true" [src]="photoSelected || 'assets/imagenes/recursos/fondo2.jpg'" alt="No image" (click)="photoInput.click()">
+            </div>
+            <div class="form__img--input">
+                <input formControlName="foto" type="file" id="file" name="imgURL" (change)="onMedicineSelected($event)" #photoInput class="d-none">
+            </div>
+            <button type="button" mat-button class="insert_foto" *ngIf="!photoSelected">
+                <label for="file">
+                    <mat-icon>insert_link</mat-icon>
+                    Agregar Imagen
+                </label>
+            </button>
+            <button type="button" mat-button class="insert_foto" *ngIf="photoSelected">
+                <label for="file">
+                    <mat-icon>insert_link</mat-icon>
+                    Cambiar Imagen
+                </label>
+            </button>
+        </div>
+        <div class="botones">
+            <button type="button" mat-mini-fab (click)="enlaces = !enlaces">
+                <mat-icon>insert_link</mat-icon>
+            </button>
+            <button type="button" mat-mini-fab (click)="imagen = !imagen">
+                <mat-icon>add_photo_alternate</mat-icon>
+            </button>
+        </div>
+
+        <button [disabled]="nuevaNoticia.invalid" type="submit" mat-raised-button color="primary" class="btnsubmit">Registrar</button>
+    </form>
+</div>

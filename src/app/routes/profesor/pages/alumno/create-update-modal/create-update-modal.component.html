@@ -1,0 +1,66 @@
+<div class="form" [formGroup]="form">
+    <h1>{{data.mode}} Alumno</h1>
+
+    <div class="form__inputs">
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Nombre</mat-label>
+                <input (focusout)="setEmail($event)" matInput placeholder="" formControlName="nombre">
+            </mat-form-field>
+        
+            <mat-form-field class="example-full-width">
+                <mat-label>Contraseña</mat-label>
+                <input type="password" matInput placeholder="" formControlName="contraseña">
+            </mat-form-field>
+        
+            <mat-form-field class="example-full-width">
+                <mat-label>Cod. Estudiante</mat-label>
+                <input type="number" matInput placeholder="" formControlName="codEstudiante">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Edad</mat-label>
+                <input type="number" matInput placeholder="" formControlName="edad">
+            </mat-form-field>
+        </div>
+
+        <div>
+            <mat-form-field class="example-full-width">
+                <mat-label>Correo</mat-label>
+                <input matInput placeholder="" formControlName="correo">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>DNI</mat-label>
+                <input type="number" matInput placeholder="" formControlName="dni">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Género</mat-label>
+                <mat-select formControlName="genero" [disableOptionCentering]="true">
+                  <mat-option [value]="'Masculino'">
+                    <b>(M):</b> Masculino
+                  </mat-option>
+                  <mat-option [value]="'Femenino'">
+                    <b>(F):</b> Femenino
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        
+            <mat-form-field>
+                <mat-label>Grado</mat-label>
+                <mat-select formControlName="grado" [disableOptionCentering]="true">
+                  <mat-option *ngFor="let grade of grades" [value]="grade._id">
+                    {{getYear(grade)}} | {{grade.nivel}} | {{grade.nombre}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+   
+
+ 
+
+    <button [disabled]="!form.valid" mat-flat-button (click)="save()">{{data.mode}}</button>
+</div>

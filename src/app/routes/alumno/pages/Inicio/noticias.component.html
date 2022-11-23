@@ -1,0 +1,25 @@
+<main class="main animated fadeIn">
+    <div class="card" *ngFor="let noticia of noticias">
+        <div class="card__descripcion">
+            <h2>{{ noticia.titulo }}</h2>
+            <p>{{ noticia.descripcion }}</p>
+        </div>
+        <div class="card__img">
+            <img [src]="imgPath + noticia.foto" [alt]="noticia.titulo" />
+        </div>
+        <div class="card__opciones">
+            <div class="estadistica">
+                <p></p>
+                <p></p>
+            </div>
+            <div class="botones">
+                <!-- <button mat-raised-button>
+                    <mat-icon>thumb_up_alt</mat-icon> Me Gusta
+                </button> -->
+                <button mat-raised-button color="primary">
+                    <mat-icon>comment</mat-icon> Comentar
+                </button>
+            </div>
+        </div>
+    </div>
+</main>

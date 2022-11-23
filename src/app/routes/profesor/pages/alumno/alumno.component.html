@@ -1,0 +1,145 @@
+<div class="page">
+    
+    <h1 class="page__title">Registro Alumnos</h1>
+
+    <div class="page__cards">
+        <div class="card">
+            <div class="card__text">
+                <h1>{{LastRegister}}</h1>
+                <p>Ultimos registros</p>
+            </div>
+            <div class="card__icon">
+                <mat-icon>alarm</mat-icon>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__text">
+                <h1>{{dataStorage.length}}</h1>
+                <p>Alumnos Registrados</p>
+            </div>
+            <div class="card__icon">
+                <mat-icon>assignment_ind</mat-icon>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card__text">
+                <h1>{{getTeacherAssign()}}</h1>
+                <p>Alumnos sin Aula</p>
+            </div>
+            <div class="card__icon">
+                <mat-icon>assignment</mat-icon>
+            </div>
+        </div>
+    </div>
+    <div class="page__buttons">
+        <button (click)="createUpdateStudent(null, 'Registrar')" mat-raised-button>
+            Registrar Alumno
+        </button>
+    </div>
+    <div class="page__table">
+
+        <mat-form-field>
+            <mat-label>Buscar dato...</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource" matSort>
+        
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> N° </th>
+            <td mat-cell *matCellDef="let row; let i = index;"> {{i+1}} </td>
+            </ng-container>
+        
+            <!-- Progress Column -->
+            <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+            <td mat-cell *matCellDef="let row"> {{row.nombre || 'sin dato'}}</td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Correo </th>
+            <td mat-cell *matCellDef="let row"> {{row.correo || 'sin dato'}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="genero">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Genero </th>
+            <td mat-cell *matCellDef="let row">
+                <ng-container *ngIf="row.genero === 'Masculino'">
+                    M
+                </ng-container>
+                <ng-container *ngIf="row.genero !== 'Masculino'">
+                    F
+                </ng-container>
+                
+            </td>
+            </ng-container>
+
+            <ng-container matColumnDef="cod">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cod. Estudiante </th>
+            <td mat-cell *matCellDef="let row">
+                <ng-container *ngIf="getCountString(row.codEstudiante); else haveCod">
+                    000000{{row.codEstudiante || 'sin dato'}}
+                </ng-container>
+
+                <ng-template #haveCod>
+                    {{row.codEstudiante || 'sin dato'}}
+                </ng-template>
+                
+                
+            </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dni">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> DNI </th>
+            <td mat-cell *matCellDef="let row"> {{row.dni || 'sin dato'}} </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="age">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Edad </th>
+            <td mat-cell *matCellDef="let row"> {{row.edad || 'sin dato'}} años
+         
+            </td>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="grade">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Grado </th>
+            <td mat-cell *matCellDef="let row"> {{row.grado[0].nombre || 'sin dato'}} </td>
+            </ng-container>
+        
+            <!-- Color Column -->
+            <ng-container matColumnDef="role">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Cargo </th>
+            <td mat-cell *matCellDef="let row"> {{row.roles[0].nombre}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="create">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Registro </th>
+            <td mat-cell *matCellDef="let row"> {{row.createdAt | date: 'shortDate'}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
+            <td mat-cell *matCellDef="let row">
+                <mat-icon  matTooltip="editar información" matTooltipPosition="before" (click)="createUpdateStudent(row._id, 'Actualizar')">edit</mat-icon>
+                <!-- <mat-icon  matTooltip="asignar curso" (click)="assignCourses(row._id)">class</mat-icon> -->
+                <mat-icon  matTooltip="eliminar registro" (click)="deleteStudent(row._id)">delete</mat-icon>
+                
+            </td>
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+        </table>
+        
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+</div>
