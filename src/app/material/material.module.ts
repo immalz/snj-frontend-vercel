@@ -22,6 +22,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 @NgModule({
     imports: [
         MatIconModule,
@@ -47,6 +48,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
         MatNativeDateModule,
         MatCheckboxModule,
         MatMomentDateModule,
+        NgxMatSelectSearchModule
     ],
     exports: [
         MatIconModule,
@@ -70,7 +72,8 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter';
         MatGridListModule,
         MatDatepickerModule,
         MatCheckboxModule,
-        MatMomentDateModule
+        MatMomentDateModule,
+        NgxMatSelectSearchModule
     ]
 })
 

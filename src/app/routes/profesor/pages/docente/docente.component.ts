@@ -16,7 +16,6 @@ export interface UserData {
   color: string;
 }
 
-
 @Component({
   selector: 'app-docente',
   templateUrl: './docente.component.html',

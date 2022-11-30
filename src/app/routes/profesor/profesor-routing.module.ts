@@ -1,3 +1,4 @@
+import { LibretaComponent } from './pages/libreta/libreta.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -19,6 +20,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AsignacionAlumnoComponent } from './pages/asignacion-alumno/asignacion-alumno.component';
 import { RegistroNotasComponent } from './pages/registro-notas/registro-notas.component';
 import { MeritoComponent } from './pages/merito/merito.component';
+import { LibretasComponent } from './pages/libretas/libretas.component';
 
 const routes: Routes = [
   { path: 'docente',
@@ -36,6 +38,8 @@ const routes: Routes = [
       {path: 'merito', component: MeritoComponent},
       {path: 'revision', component: RevisionComponent},
       {path: 'perfil', component: PerfilComponent},
+      {path: 'orden', component: LibretaComponent},
+      {path: 'libretas', component: LibretasComponent},
     ]
   }
 ];

@@ -30,10 +30,12 @@ import { AsignacionAlumnoComponent } from './pages/asignacion-alumno/asignacion-
 import { TestingComponent } from './pages/testing/testing.component';
 import { MeritoComponent } from './pages/merito/merito.component';
 import { UpdateNoteComponent } from './pages/revision/update-note/update-note.component';
+import { LibretaComponent } from './pages/libreta/libreta.component';
+import { LibretasComponent } from './pages/libretas/libretas.component';
 
 
 @NgModule({
-  declarations: [PerfilComponent, AulasComponent, AulaComponent, NavbarComponent, PagesComponent, CursosComponent, SidebarComponent, DocenteComponent, AlumnoComponent, RegistroNotasComponent, NotaComponent, RevisionComponent, DashboardComponent, CreateUpdateModalComponent, CreateUpdateModalStudentComponent, CreateUpdateClassroomComponent, CreateUpdateCoursesComponent, AsignacionAlumnoComponent, AssignCoursesComponent, TestingComponent, MeritoComponent, UpdateNoteComponent],
+  declarations: [PerfilComponent, AulasComponent, AulaComponent, NavbarComponent, PagesComponent, CursosComponent, SidebarComponent, DocenteComponent, AlumnoComponent, RegistroNotasComponent, NotaComponent, RevisionComponent, DashboardComponent, CreateUpdateModalComponent, CreateUpdateModalStudentComponent, CreateUpdateClassroomComponent, CreateUpdateCoursesComponent, AsignacionAlumnoComponent, AssignCoursesComponent, TestingComponent, MeritoComponent, UpdateNoteComponent, LibretaComponent, LibretasComponent],
   imports: [
     CommonModule,
     ProfesorRoutingModule,

@@ -1,1 +1,181 @@
-<p>dashboard works!</p>
+<div class="page">
+    <!-- <div class="filters">
+        <mat-form-field appearance="outline">
+            <mat-label>Filtrar por Año</mat-label>
+            <mat-select [(ngModel)]="selectYear">
+              <mat-option value="2016">2016</mat-option>
+              <mat-option value="2017">2017</mat-option>
+              <mat-option value="2018">2018</mat-option>
+              <mat-option value="2019">2019</mat-option>
+              <mat-option value="2020">2020</mat-option>
+              <mat-option value="2021">2021</mat-option>
+              <mat-option value="2022">2022</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-flat-button (click)="change()">
+            Filtrar
+          </button>
+    </div> -->
+</div>
+<div class="page">
+    <div class="page__cards">
+        <h1 class="page__title">Notas</h1>
+
+        <div class="page__body">
+            <div class="card">
+                <div class="card__text">
+                    <h1 *ngIf="loadingNote">{{noteList.length * 7}}</h1>
+                    <!-- <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> -->
+                    <p>Notas Registrados</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment_ind</mat-icon>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__text">
+                    <h1>1185</h1>
+                    <p>Registros Mensuales</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page__cards">
+        <h1 class="page__title">Observaciones</h1>
+
+        <div class="page__body">
+            <div class="card">
+                <div class="card__text">
+                    <h1 *ngIf="loadingObserver">{{observerList.length}}</h1>
+                    <!-- <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> -->
+                    <p>Total de Observaciones</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment_ind</mat-icon>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__text">
+                    <h1 *ngIf="loadingObserver">{{observationMonth.length}}</h1>
+                    <p>Observaciones del Mes</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="page__cards">
+        <h1 class="page__title">Docentes</h1>
+        
+        <div class="page__body">
+            <div class="card">
+                <div class="card__text">
+                    <h1 *ngIf="loadingTeacher">{{teacherList.length}}</h1>
+                    <p>Docentes Registrados</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment_ind</mat-icon>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__text">
+                    <h1>9</h1>
+                    <p>Docentes Asignados</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    
+    <div class="page__cards">
+        <h1 class="page__title">Alumnos</h1>
+        
+        <div class="page__body">
+            <div class="card">
+                <div class="card__text">
+                    <h1 *ngIf="loadingAlumn">{{alumnList.length}}</h1>
+                    <p>Alumnos Registrados</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment_ind</mat-icon>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__text">
+                    <h1>0</h1>
+                    <p>Alumnos sin Aula</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+    
+    <div class="page__cards">
+        <h1 class="page__title">Aulas</h1>
+        
+        <div class="page__body">
+            <div class="card">
+                <div class="card__text">
+                    <h1 *ngIf="loadingAula">{{aulaList.length}}</h1>
+                    <p>Aulas Registrados</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment_ind</mat-icon>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__text">
+                    <h1>0</h1>
+                    <p>Aulas sin Alumnos</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+    
+    <div class="page__cards">
+        <h1 class="page__title">Cursos</h1>
+        
+        <div class="page__body">
+            <div class="card">
+                <div class="card__text">
+                    <h1 *ngIf="loadingCourse">{{coursesList.length}}</h1>
+                    <p>Cursos Registrados</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment_ind</mat-icon>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card__text">
+                    <h1>1</h1>
+                    <p>Cursos sin Docente</p>
+                </div>
+                <div class="card__icon">
+                    <mat-icon>assignment</mat-icon>
+                </div>
+            </div>
+        </div>
+    </div>
+            
+   
+</div>

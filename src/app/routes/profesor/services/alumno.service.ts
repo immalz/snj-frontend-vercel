@@ -11,6 +11,8 @@ export class AlumnoService {
   private URL = environment.URL + 'alumno';
   private URLAUTH = environment.URL + 'auth';
 
+  public alumno: any;
+
   constructor(private http: HttpClient, private router: Router) { }
 
   createStudent(payload: any): any {
@@ -19,6 +21,10 @@ export class AlumnoService {
 
   getStudents(): any {
     return this.http.get<any>(this.URL);
+  }
+
+  getStudentsForGrade(payload): any {
+    return this.http.post<any>(this.URL + '/grado', payload);
   }
 
   getStudent(id: string): any {

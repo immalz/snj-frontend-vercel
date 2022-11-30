@@ -19,6 +19,9 @@ export class NotaService {
   getNoteForCourse(payload: any): any {
     return this.http.post<any>(`${this.URL}/curso`, payload);
   }
+  getNoteForGrade(payload: any): any {
+    return this.http.post<any>(`${this.URL}/grado`, payload);
+  }
 
   getNoteObserver(payload: any): any {
     return this.http.post<any>(`${this.URL}/observadas`, payload);

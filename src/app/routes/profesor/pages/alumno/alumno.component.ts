@@ -5,6 +5,7 @@ import { formatDate } from '@angular/common';
 import { AlumnoService } from '../../services/alumno.service';
 import { CreateUpdateModalStudentComponent } from './create-update-modal/create-update-modal.component';
 import { MatPaginator } from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 export interface UserData {
   id: string;
@@ -23,6 +24,7 @@ export class AlumnoComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'email','dni','age', 'grade', 'genero', 'cod','create', 'actions'];
   dataSource!: any
   dataStorage: any = [];
+  listavacia: any = [];
   LastRegister: number = 0;
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
@@ -45,9 +47,9 @@ export class AlumnoComponent implements OnInit {
   getTeachers(): void {
     this.alumnoService.getStudents().subscribe(
       (res: any) => {
-        console.log(res);
+        this.listavacia = res;
         this.dataStorage = res;
-        this.dataSource = res.reverse();
+        this.dataSource = new MatTableDataSource<any>(this.listavacia);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.getLastRegister();

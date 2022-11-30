@@ -1,0 +1,71 @@
+
+
+<ng-container *ngIf="!loading"> 
+    <div class="page">
+        <h1 class="page__title">Promedio de Notas</h1>
+        
+        <div class="page__text">
+            <div class="filters">
+                <div class="filters__column">
+                    <h2><b>Aula: </b>{{gradeActive || ''}}</h2>
+                    <h2><b>Curso: </b>{{courseName || ''}}</h2>
+                </div>
+                <div class="filters__column">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Aulas</mat-label>
+                        <mat-select [(ngModel)]="gradeActive">
+                          <mat-option *ngFor="let grade of grades" [value]="grade.nombre" (click)="showGrade(grade)">{{grade.nombre}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+    
+                    <mat-form-field appearance="outline">
+                        <mat-label>Cursos</mat-label>
+                        <mat-select [(ngModel)]="courseName">
+                            <mat-option *ngFor="let course of coursesList" [value]="course.nombre" (click)="selectCourse(course)">{{course.nombre}}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="page__encabezados">
+            <div class="item">
+                <p></p>
+                <p></p>
+                <p>1er Trimestre</p>
+                <p>2do Trimestre</p>
+                <p>3er Trimestre</p>
+                <p></p>
+            </div>
+            <div class="item">
+                <p>N°</p>
+                <p>Nombre del Estudiante</p>
+                <p *ngFor="let mes of meses">{{mes | titlecase}}</p>
+                <p class="promedio" *ngIf="orderBy === 'mayor'" (click)="order('mayor')">Promedio</p>
+                <p class="promedio menor"  *ngIf="orderBy !== 'mayor'"  (click)="order('menor')">Promedio</p>
+            </div>
+        </div>
+
+        <div class="pages__notas">
+            <ng-container *ngIf="!loadingContent">
+                <div class="nota" (click)="goToLibreta(item)" *ngFor="let item of alumnosList; let i = index;">
+                    <p class="firts">{{i + 1}}</p>
+                    <p class="name">{{item.nombre}}</p>
+
+
+                    <p [class]="notas.mes" *ngFor="let notas of item.cursos[courseName]">{{notas.nota}}</p>
+        
+                    <p>{{item.cursos[courseName][3].nota}}</p>
+
+                    <p class="last">{{getProm(item) | number : '1.2-2'}}</p>
+                </div>
+            </ng-container>
+            <ng-container *ngIf="loadingContent">
+                <div class="loading">
+                    <div class="lds-ellipsi"><div></div><div></div><div></div><div></div></div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</ng-container>

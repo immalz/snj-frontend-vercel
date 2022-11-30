@@ -48,14 +48,14 @@ export class SidebarComponent implements OnInit {
 
   setItemList(): void {
     this.menuList = [
-      // {
-      //   route: '/',
-      //   title: 'Dashboard',
-      //   icon: 'dashboard',
-      //   active: true,
-      //   role: 'director',
-      //   submenu: []
-      // },
+      {
+        route: '/',
+        title: 'Dashboard',
+        icon: 'dashboard',
+        active: true,
+        role: 'director',
+        submenu: []
+      },
       {
         route: '/docentes',
         title: 'Docente',
@@ -121,7 +121,7 @@ export class SidebarComponent implements OnInit {
         submenu: []
       },
       {
-        route: '/libreta',
+        route: '/orden',
         title: 'Libretas',
         icon: 'bar_chart',
         active: false,

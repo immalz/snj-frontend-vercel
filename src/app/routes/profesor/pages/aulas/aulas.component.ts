@@ -6,7 +6,7 @@ import { MatSort } from '@angular/material/sort';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { GradoService } from '../../services/grado.service';
 import { CreateUpdateClassroomComponent } from './create-update-modal/create-update-classroom.component';
-
+import {MatTableDataSource} from '@angular/material/table';
 @Component({
   selector: 'app-aulas',
   templateUrl: './aulas.component.html',
@@ -17,6 +17,7 @@ export class AulasComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'name', 'tutor', 'nivel', 'piso', 'numeroAula', 'año', 'actions'];
   dataSource!: any
   dataStorage: any = [];
+  listavacia: any = [];
   LastRegister: number = null;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -39,9 +40,9 @@ export class AulasComponent implements OnInit, AfterViewInit {
   getTeachers(): void {
     this.gradesService.getGrades().subscribe(
       res => {
-        console.log(res);
+        this.listavacia = res;
         this.dataStorage = res;
-        this.dataSource = res;
+        this.dataSource = new MatTableDataSource<any>(this.listavacia);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
         this.getLastRegister();

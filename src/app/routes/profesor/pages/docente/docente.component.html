@@ -97,7 +97,7 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> </th>
             <td mat-cell *matCellDef="let row">
                 <mat-icon  matTooltip="editar información" matTooltipPosition="before" (click)="createUpdateTeacher(row._id, 'Actualizar')">edit</mat-icon>
-                <mat-icon  matTooltip="asignar curso" (click)="assignCourses(row)">class</mat-icon>
+                <!-- <mat-icon  matTooltip="asignar curso" (click)="assignCourses(row)">class</mat-icon> -->
                 <mat-icon  matTooltip="eliminar registro" (click)="deleteTeacher(row._id)">delete</mat-icon>
                 
             </td>

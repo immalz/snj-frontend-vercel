@@ -1,0 +1,50 @@
+
+
+<ng-container *ngIf="!loading"> 
+    <div class="page">
+     
+        <h1 class="page__title">
+            <button mat-icon-button (click)="return()">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+            Vista Previa
+        </h1>
+        
+        <div class="page__text">
+            <div class="filters">
+                <div class="filters__column">
+                    <!-- <h2><b>Aula: </b>{{gradeActive || ''}}</h2>
+                    <h2><b>Curso: </b>{{courseName || ''}}</h2> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="page__content">
+            <div class="libreta">
+                <div class="libreta__header">
+                    <h1>Areas</h1>
+                    <p class="calif">CALIFICACION TRIMESTRAL</p>
+                    <p class="prom">PROMEDIO ANUAL</p>
+                    <p clasS="promf">PROMEDIO FINAL</p>
+                    <p>I</p>
+                    <p>II</p>
+                    <p>III</p>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="libreta__body">
+                    
+                </div>
+                <div class="libreta__body"></div>
+            </div>
+        </div>
+
+
+    </div>
+</ng-container>
+
+<ng-container *ngIf="loading">
+    <div class="loading">
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
+</ng-container>

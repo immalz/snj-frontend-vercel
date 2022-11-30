@@ -1,12 +1,12 @@
 import { GradoService } from './../../services/grado.service';
-import { Component, ViewChild, OnInit } from '@angular/core';
-import {MatLegacyPaginator as MatPaginator} from '@angular/material/legacy-paginator';
+import { MatPaginator } from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 import {MatSort} from '@angular/material/sort';
-import {MatLegacyTableDataSource as MatTableDataSource} from '@angular/material/legacy-table';
 import { formatDate } from '@angular/common';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AlumnoService } from '../../services/alumno.service';
 import { ActivatedRoute } from '@angular/router';
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 
 export interface UserData {
   id: string;
@@ -28,8 +28,9 @@ export class AsignacionAlumnoComponent implements OnInit {
   dataStorage: any = [];
   LastRegister: number = null;
   routeParamsID: any;
+  listavacia: any[] = [];
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   @ViewChild(MatPaginator) paginator2: MatPaginator;
@@ -54,11 +55,11 @@ export class AsignacionAlumnoComponent implements OnInit {
   getTeachers(): void {
     this.alumnoService.getStudents().subscribe(
       res => {
-        console.log(res);
+        this.listavacia = res;
         this.dataStorage = res;
-        this.dataSource = new MatTableDataSource(res);
-        this.dataSource.paginator = this.paginator2;
-        this.dataSource.sort = this.sort2;
+        this.dataSource = new MatTableDataSource<any>(this.listavacia);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
  
         this.getLastRegister();
 
